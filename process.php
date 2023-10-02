@@ -3,7 +3,7 @@
     $limit = $_POST["limit"];
     $sort = $_POST["sort"];
 
-    // removes punctuation and returns array of words
+    // Eradicates punctuation and returns array of words
     function removePunctuation(string $txt){
         $punctuations = " .,!?;:-()[]{}\"'/\\|&#@–\n";
         $words = [];
@@ -18,7 +18,7 @@
     }
 
 
-    // removes common words and other invalid texts
+    // eradicates common words and other invalid texts
     function removeCommonWords(array $strArr){
         $common_words = ["i", "the", "a", "is", "this", "an", "and", "at", "but", "if"
         ,"in", "it", "of", "on", "or", "to", "with", "as", "s"];
@@ -26,7 +26,7 @@
         $alphabet = range('a', 'z');
         $str = array_map('strtolower', $strArr);
     
-        //remove common words
+        //eradicate common words
         while (true) {
             $commonElements = array_intersect($strArr, $common_words);
             
@@ -42,7 +42,7 @@
             }
         }
 
-        //remove empty string
+        //eradicate empty string
         while (true) {
             $commonElements = array_intersect($strArr, $empty_string);
             
@@ -69,7 +69,7 @@
         return $words_array;
     }
 
-    // returns the array of words associated with its frequency
+    // returns the array of words together with its frequency
     function countWords($wordsArray) {
         $wordCounts = [];
 
@@ -97,7 +97,7 @@
 
     usort($arr, 'sortByCount'); 
 
-    //  Table Display
+    // Displaying table
     echo "<table>";
     echo "<tr><th>index</th><th>word</th><th>frequency</th>";
 
